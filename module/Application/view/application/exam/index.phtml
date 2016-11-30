@@ -22,7 +22,7 @@
                         <td><?php echo $exams->getSubject()->getName(); ?></td>
                         <td><?php echo $exams->getQuestions()->count(); ?></td>
                         <td>
-                            <a href="<?php echo $this->url('exam', ['action' => 'detail', 'id' => $exams->getId()]); ?>" class="btn btn-info btn-xs">Questions</a>
+                            <a href="<?php echo $this->url('exam', ['action' => 'detail', 'id' => $exams->getId()]); ?>" class="btn btn-info btn-xs">Preview</a>
                             <a href="<?php echo $this->url('exam', ['action' => 'edit', 'id' => $exams->getId()]); ?>" class="btn btn-warning btn-xs">Edit</a>
                             <a href="<?php echo $this->url('exam', ['action' => 'delete', 'id' => $exams->getId()]); ?>" class="btn btn-danger btn-xs">Delete</a>
                         </td>

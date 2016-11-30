@@ -13,6 +13,7 @@
                 <thead>
                     <th>#</th>
                     <th>Answer</th>
+                    <th>Is Correct</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -20,6 +21,13 @@
                         <tr>
                             <td><?php echo $answer->getId(); ?></td>
                             <td><?php echo $answer->getText(); ?></td>
+                            <td>
+                                <?php if ($answer->isCorrect()): ?>
+                                    <span class="label label-success">YES</span>
+                                <?php else: ?>
+                                    <span class="label label-danger">NO</span>
+                                <?php endif; ?>
+                            </td>
                             <td>
                                 <a href="<?php echo $this->url('answer', ['action' => 'edit', 'id' => $answer->getId()]); ?>" class="btn btn-warning btn-xs">Edit</a>
                                 <a href="<?php echo $this->url('answer', ['action' => 'delete', 'id' => $answer->getId()]); ?>" class="btn btn-danger btn-xs">Delete</a>

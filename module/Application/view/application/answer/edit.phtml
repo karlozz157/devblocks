@@ -16,6 +16,16 @@
                 <?php endif; ?>
             </div>
 
+            <div class="form-group">
+                <?php echo $this->formLabel($form->get('correct')); ?>
+                <?php echo $this->formElement($form->get('correct')); ?>
+                <?php if ($this->formElementErrors($form->get('correct'))): ?>
+                    <div class="alert alert-danger mt">
+                        <?php echo $this->formElementErrors($form->get('correct')); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
             <div class="form-group" >
                 <?php echo $this->formElement($form->get('submit')); ?>
             </div>

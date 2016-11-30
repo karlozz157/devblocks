@@ -35,6 +35,13 @@ class Answer extends Entity
     protected $text;
 
     /**
+     * @var boolean $correct
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $correct = false;
+
+    /**
      * Set id
      *
      * @param integer $id
@@ -104,6 +111,26 @@ class Answer extends Entity
     public function getQuestion()
     {
         return $this->question;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCorrect()
+    {
+        return $this->correct;
+    }
+
+    /**
+     * @param boolean $correct
+     *
+     * @return $this
+     */
+    public function setCorrect($correct)
+    {
+        $this->correct = $correct;
+
+        return $this;
     }
 
     /**

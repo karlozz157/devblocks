@@ -4,7 +4,7 @@
     <div class="form-group">
         <h3><?php echo ($number + 1); ?>.- <?php echo $question->getName(); ?></h3>
         <?php foreach ($question->getAnswers() as $answer): ?>
-            <p class="bg-danger p"><?php echo $answer->getText(); ?></p>
+            <p class="bg-<?php echo $answer->isCorrect() ? 'success' : 'danger' ?> p"><?php echo $answer->getText(); ?></p>
         <?php endforeach; ?>
     </div>
 <?php endforeach; ?>

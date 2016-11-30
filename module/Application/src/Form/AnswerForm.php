@@ -26,6 +26,13 @@ class AnswerForm extends AbstractForm
                 ],
             ])
             ->add([
+                'name' => 'correct',
+                'type' => 'Checkbox',
+                'options' => [
+                    'label' => 'Is Correct',
+                ]
+            ])
+            ->add([
                 'name' => 'submit',
                 'type' => 'Submit',
                 'attributes' => [
