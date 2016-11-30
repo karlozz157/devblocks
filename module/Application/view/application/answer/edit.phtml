@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1><?php echo $parent->getName(); ?></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <?php echo $this->formLabel($form->get('text')); ?>
+                <?php echo $this->formElement($form->get('text')); ?>
+                <?php if ($this->formElementErrors($form->get('text'))): ?>
+                    <div class="alert alert-danger mt">
+                        <?php echo $this->formElementErrors($form->get('text')); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="form-group" >
+                <?php echo $this->formElement($form->get('submit')); ?>
+            </div>
+        </form>
+    </div>
+</div>

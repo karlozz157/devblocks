@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="<?php echo $this->url('exam', ['action' => 'new']); ?>" class="btn btn-primary btn-sm pull-left">New</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <th>#</th>
+                <th>Exam</th>
+                <th>Subject</th>
+                <th>Questions</th>
+                <th>Actions</th>
+                </thead>
+                <tbody>
+                <?php foreach ($results as $exams): ?>
+                    <tr>
+                        <td><?php echo $exams->getId(); ?></td>
+                        <td><?php echo $exams->getName(); ?></td>
+                        <td><?php echo $exams->getSubject()->getName(); ?></td>
+                        <td><?php echo $exams->getQuestions()->count(); ?></td>
+                        <td>
+                            <a href="<?php echo $this->url('exam', ['action' => 'detail', 'id' => $exams->getId()]); ?>" class="btn btn-info btn-xs">Questions</a>
+                            <a href="<?php echo $this->url('exam', ['action' => 'edit', 'id' => $exams->getId()]); ?>" class="btn btn-warning btn-xs">Edit</a>
+                            <a href="<?php echo $this->url('exam', ['action' => 'delete', 'id' => $exams->getId()]); ?>" class="btn btn-danger btn-xs">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

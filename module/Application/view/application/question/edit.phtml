@@ -1,0 +1,14 @@
+<?php
+$form = $this->form;
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+
+
+<?php echo $this->formRow($form->get('name')); ?>
+
+<?php echo $this->formElement($form->get('submit')); ?>
+
+
+<?php echo $this->form()->closeTag($form); ?>
