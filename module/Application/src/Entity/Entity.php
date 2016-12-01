@@ -41,7 +41,11 @@ abstract class Entity
 
                 if (!is_array($value)) {
                     $entityNewValue = $this->manager->getReference($class, $value);
-     
+
+                    if (is_null($this->$property)) {
+                        $this->$property = $entityNewValue;
+                    }
+
                     if ($this->$property->getId() !== $entityNewValue->getId()) {
                         $this->$property = $entityNewValue;
                     }
