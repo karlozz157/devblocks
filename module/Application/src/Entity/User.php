@@ -5,10 +5,10 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Repository\Repository")
  * @ORM\Table(name="users")
  */
-class User
+class User extends Entity
 {
     /**
      * @var int $id

@@ -34,6 +34,16 @@ return [
                     ],
                 ],
             ],
+            'auth' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/admin/login',
+                    'defaults' => [
+                        'controller' => Controller\AuthController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'subject' => [
                 'type'    => Segment::class,
                 'options' => [
@@ -78,6 +88,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\AuthController::class     => InvokableFactory::class,
             Controller\IndexController::class    => InvokableFactory::class,
             Controller\SubjectController::class  => InvokableFactory::class,
             Controller\QuestionController::class => InvokableFactory::class,
@@ -113,6 +124,14 @@ return [
             'orm_default' => [
                 'drivers' => [
                     'Application\Entity' => 'app_driver'
+                ],
+            ],
+            'authentication' => [
+                'orm_default' => [
+                    'object_manager'      => 'Doctrine\ORM\EntityManager',
+                    'identity_class'      => 'Application\Entity\User',
+                    'identity_property'   => 'email',
+                    'credential_property' => 'password',
                 ],
             ],
         ],

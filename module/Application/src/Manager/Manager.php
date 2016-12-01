@@ -61,6 +61,16 @@ class Manager
     }
 
     /**
+     * @param $entity
+     *
+     * @return \Doctrine\ORM\EntityRepository
+     */
+    public function getRepository($entity)
+    {
+        return $this->entityManager->getRepository($entity);
+    }
+
+    /**
      * @param string $entity
      * @param int $id
      *

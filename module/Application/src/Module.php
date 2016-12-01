@@ -27,8 +27,23 @@ class Module
             'factories' => [
                 'manager' => function($sm) {
                     return new \Application\Manager\Manager($sm->get('Doctrine\ORM\EntityManager'));
+                },
+                'auth_service' => function($sm) {
+                    $authService = $sm->get('doctrine.authenticationservice.orm_default');
+
+                    $adapter = $authService
+                        ->getAdapter()
+                        ->setOptions([
+                            'object_manager'      => 'Doctrine\ORM\EntityManager',
+                            'object_repository'   => $sm->get('manager')->getRepository('Application\Entity\User'),
+                            'identity_class'      => 'Application\Entity\User',
+                            'identity_property'   => 'email',
+                            'credential_property' => 'password',
+                        ]);
+
+                    return $adapter;
                 }
-            ]
+            ],
         ];
     }
 }
